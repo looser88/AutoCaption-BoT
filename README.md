@@ -1,59 +1,92 @@
-## <b>𝘼𝙪𝙩𝙤𝘾𝙖𝙥𝙩𝙞𝙤𝙣 𝘽𝙤𝙩</b>
+# Telegram Bot, built on Cyclic 🤖
 
-This Repo is Telegram Channel Code to help build a bot that automatically adds captions to files added to a Telegram channel
+Say hello to the Telegram Bot template! Built on the [grammY](https://grammy.dev/) framework and hosted by the [Cyclic](https://www.cyclic.sh/) serverless platform.
 
+- Handling Inline Queries.
+- Responding to commands.
+- Interactive Inline Keyboards.
 
-  </a>
-</p>
-<p align="center">
-  <a href="https://github.com/PR0FESS0R-99/AutoCaptionBot-V1/stargazers">
-    <img src="https://img.shields.io/github/stars/PR0FESS0R-99/AutoCaptionBot-V1?style=social">
+Try it out now! [\@CyclicDemoBot](http://t.me/CyclicDemoBot)
 
-  </a>
-  
-  <a href="https://github.com/PR0FESS0R-99/AutoCaption-BoT/fork">
-    <img src="https://img.shields.io/github/forks/PR0FESS0R-99/AutoCaption-BoT?label=Fork&style=social">
-
-  </a>  
-</p>
+<p align="center"><img src="assets/telegram-bot-banner.png" alt="The Telegram Bot Starter." /></p>
 
 
-### Deploy To Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/PR0FESS0R-99/AutoCaption-BoT)                     
+## Deployment
 
-### Simple Variables 😉
+### Prerequisites
 
-* `app_id` : Get this value from [telegram.org](https://my.telegram.org/apps) or [@MT_MyTelegramOrg_Bot](https://t.me/MT_MyTelegramOrg_Bot) .
-* `api_hash` : Get this value from [telegram.org](https://my.telegram.org/apps) or [@MT_MyTelegramOrg_Bot](https://t.me/MT_MyTelegramOrg_Bot) .
-* `bot_token` : Create a bot using [@BotFather](https://telegram.dog/BotFather), and get the Telegram API token .
-* `custom_caption` : your caption. add {file_name} to get file original name. More info to watch [YT TUTORIAL](https://github.com/PR0FESS0R-99) .
+Make sure that you have the following programs installed on your own local machine.
 
-### Made With 
+- [Telegram Client](https://desktop.telegram.org/).
+- cURL.
 
-● 📚 𝗟𝗔𝗡𝗚𝗨𝗔𝗚𝗘
+### Step 1 — Deploy on Cyclic 🚀
 
-[![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org)
+Take your new Telegram bot live with one click. \
+**Free hosting. No credit card required.**
 
-● 🧮 𝗟𝗜𝗕𝗥𝗔𝗥𝗬
+[![Deploy to Cyclic](https://deploy.cyclic.sh/button.svg)](https://deploy.cyclic.sh/eludadev/telegram-bot)
 
-[![PYROGRAM](https://img.shields.io/badge/%F0%9F%94%A5-PYROGRAM%20-orange)](https://docs.pyrogram.org)
+<p align="center"><img src="assets/deploying-to-cyclic.gif" alt="Deploying an app to Cyclic" /></p>
+
+### Step 2 — Configure environment variables
+
+1. Grab your Telegram bot's API token by sending a message to [\@BotFather](https://telegram.me/BotFather).
+<p align="center"><img src="./assets/creating-telegram-bot-api-token.gif" alt="Send /newbot to @BotFather to create a new bot and get its API token." /></p>
+
+2. Add that API token to your Cyclic deployment's environment variables.
+<p align="center"><img src="./assets/setting-api-token-in-cyclic.gif" alt="" /></p>
+
+3. Set the `NODE_ENV` environment variable to `production`.
+<p align="center"><img src="./assets/setting-node-env-variable.gif" alt="" /></p>
+
+### Step 3 — Link the bot with your new server
+
+Connect your Telegram bot to your server by sending the following HTTP request using your terminal:
+
+#### Linux / MacOS
+
+```bash
+export TELEGRAM_API_TOKEN=... # YOUR TELEGRAM API TOKEN
+export TELEGRAM_WEBHOOK_URL=... # YOUR CYCLIC DEPLOYMENT URL
+
+curl "https://api.telegram.org/bot$TELEGRAM_API_TOKEN/setWebhook?url=$TELEGRAM_WEBHOOK_URL"
+```
+
+## How to run it locally?
+
+### Prerequisites
+
+- Node.
+- Yarn.
+- [Telegram Client](https://desktop.telegram.org/).
+
+### Local installation
+
+1. Clone the repository to your machine: `git clone https://github.com/eludadev/telegram-bot && cd telegram-bot`
+2. Grab your bot's API token by messaging [\@BotFather](https://telegram.me/BotFather). (see above)
+3. Create the file `.env` and add the following line:
+```bash
+TELEGRAM_TOKEN=... # YOUR TELEGRAM API TOKEN
+```
+4. Download dependencies: `yarn`
+5. Start your bot: `yarn dev`
+
+## Usage Examples
+
+### Being greeted by the bot
+
+<p align="center"><img src="assets/bot-greeting.gif" alt="Bot responding to the yo command with "yo eludadev"" /></p>
 
 
-### Developer & Support
+### Applying text effects
 
-[Telegram Channel](https://Telegram.dog/Mo_Tech_YT)
-
-[Follow On InstaGram](https://www.instagram.com/mrk_yt_)
-
-[Subscribe YouTube Channel](https://youtube.com/c/MoTech_YT)
-
-### Credits
+<p align="center"><img src="assets/bot-text-effects.gif" alt="Bot applying various text effects such as monospace and italic to the text "Hello World"" /></p>
 
 
-### LICENSE
+### Invoking the bot in other chats
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/PR0FESS0R-99/AutoCaption-BoT/blob/main/LICENSE)
+> **Note**
+> This feature is also known as [Inline Queries](https://core.telegram.org/api/bots/inline).
 
-Licensed under [MIT License](https://github.com/PR0FESS0R-99/AutoCaptionBot-V1/blob/main/LICENSE)
-🚫 Don't Sell This Code. Code is fully open source project ❤️‍🔥
-Copyright Claimed by © @PR0FESS0R-99
+<p align="center"><img src="assets/bot-inline-queries.gif" alt="Bot applying the monospace text effect to the text "Hello" in another chat" /></p>
